@@ -1,9 +1,11 @@
 // ==UserScript==
 // @name         iPool Auto Login
-// @version      1.0
-// @description  this script save your login credentials in localStorage and keep you logged in
+// @version      1.0.1
+// @description  this script saves your login credentials in localStorage and keeps you logged in
 // @author       Pascal Helbig
 // @match        http://ipool.ba-berlin.de/*
+// @downloadURL  https://github.com/PascalHelbig/ipool-autologin/raw/master/ipool-autologin.user.js
+// @updateURL    https://github.com/PascalHelbig/ipool-autologin/raw/master/ipool-autologin.user.js
 // @grant        none
 // ==/UserScript==
 
