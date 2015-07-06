@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name         iPool Auto Login
-// @version      1.0.1
+// @version      1.1.0
 // @description  this script saves your login credentials in localStorage and keeps you logged in
 // @author       Pascal Helbig
 // @match        http://ipool.ba-berlin.de/*
@@ -41,6 +41,28 @@ function main() {
         jQ('a[href="/main.php?action=logout"]').on('click', function () {
             localStorage.removeItem('matr_working');
         });
+
+        // if the action is browse_stundenplaene:
+        if (window.location.search.indexOf('?action=browse_stundenplaene') >= 0) {
+            var faculty = jQ('select[name="faculty"]').val();
+            var course = jQ('select[name="course"]').val();
+
+            // if faculty and course are set, than save it in storage:
+            if (faculty != -1 && course != -1) {
+                localStorage.setItem('faculty', faculty);
+                localStorage.setItem('course', course);
+            }
+
+            // if faculty and course is not set:
+            if (faculty == -1 && course == -1) {
+                var faculty_storage = localStorage.getItem('faculty');
+                var course_storage = localStorage.getItem('course');
+
+                if (faculty_storage != null && course_storage != null) {
+                    window.location = 'http://ipool.ba-berlin.de/main.php?action=browse_stundenplaene&faculty=' + faculty_storage + '&course=' + course_storage;
+                }
+            }
+        }
 
         var matr = localStorage.getItem('matr');
         if (matr == null) {
