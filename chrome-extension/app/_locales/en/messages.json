@@ -1,0 +1,10 @@
+{
+  "appName": {
+    "message": "ipool-autologin",
+    "description": "The name of the application"
+  },
+  "appDescription": {
+    "message": "This plugin saves your login credentials in localStorage and keeps you logged in.",
+    "description": "The description of the application"
+  }
+}
